@@ -1,5 +1,4 @@
 
-#include config.mk
 include functions.mk
 
 export BUILD_DIR := $(CURDIR)/release
