@@ -1,0 +1,39 @@
+
+1. Create main makefile from which all other makefiles will be called.
+   Must contain 3 phony targets: all, clean, prebuild.
+
+2. Create functions.mk file which will contain all necessary functions.
+   Functions that have to be implemented: create_dir and remove_dir.
+   Both take one argument, directory which has to be created/deleted.
+
+3. Create rules.mk which will contain all implicit rules.
+   Must contain 3 implicit rules for: executable, library, object.
+
+4. Must be able to pass DEBUG variable to the makefile.
+   Depending on this value (0 or 1), created files will go to either release
+   or debug directory. Default value shall be 0.
+
+5. Create makefile for 1_complex module.
+
+6. Create makefile for 2_logger module.
+
+7. Create makefile for 3_printer module.
+
+8. Create makefile for 4_main module.
+
+9. Must be able to pass VERBOSE variable to the makefile.
+   Depending on this value (0 or 1), make recipe output to stdout will be
+   enabled or disabled. Default value shall be 0.
+
+HINT:
+   Every makefile which is going to use implicit rules has to include rules.mk.
+   It has to be included at the end of the makefile, after all variables have been set.
+
+HELP:
+   compile source file gcc cmd:
+       gcc -c [source_file] -I[headers_path] -o [object_name]
+   create archive gcc cmd:
+       ar -rvs [library_name] [list_object_files]
+   link libraries and object files
+       gcc [object_files] [path to libraries with prefix -L] [library names with prefix -l] -o [executable name]
+

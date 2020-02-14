@@ -1,0 +1,14 @@
+
+SRC_FILES := $(wildcard src/*.c)
+_OBJ_FILES := $(SRC_FILES:.c=.o)
+OBJ_FILES := $(subst src,$(BUILD_DIR),$(_OBJ_FILES))
+
+HEADERS := $(wildcard include/*.h)
+SRC_DIR := src
+HEAD_LINK := -Iinclude
+
+TARGET := $(BUILD_DIR)/liblogger.a
+
+$(TARGET):
+
+include ../config.mk
