@@ -1,6 +1,11 @@
 
 include functions.mk
 
+export V := @
+ifeq ($(VERBOSE),1)
+	V := 
+endif
+
 export BUILD_DIR := $(CURDIR)/release
 ifeq ($(DEBUG),1)
 	BUILD_DIR := $(CURDIR)/debug
@@ -9,13 +14,14 @@ endif
 .PHONY: all clean prebuild
 
 all: prebuild
-	make --directory=1_complex
-	make --directory=2_logger
-	make --directory=3_printer
-	make --directory=4_main
+	$(V)make --directory=1_complex
+	$(V)make --directory=2_logger
+	$(V)make --directory=3_printer
+	$(V)make --directory=4_main
 	
 prebuild:
-	$(call create_dir,$(BUILD_DIR))
+	$(V)$(call create_dir,$(BUILD_DIR))
 
 clean:
-	$(call delete_dir,$(BUILD_DIR))
+	$(V)$(call delete_dir,$(BUILD_DIR))
+
