@@ -11,4 +11,4 @@ TARGET := $(BUILD_DIR)/libcomplex.a
 
 $(TARGET):
 
-include ../config.mk
+include ../rules.mk
