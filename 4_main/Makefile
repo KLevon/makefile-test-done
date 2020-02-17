@@ -19,6 +19,8 @@ LIB_LINK := $(addprefix -l,$(LIBS))
 
 TARGET := $(BUILD_DIR)/main.exe
 
+.PHONY: $(LIB_FULL)
+
 $(TARGET):
 
 include ../rules.mk
