@@ -1,14 +1,14 @@
 
+SRC_DIR := .
+
 SRC_FILES := $(wildcard *.c)
 _OBJ_FILES := $(SRC_FILES:.c=.o)
 OBJ_FILES := $(addprefix $(BUILD_DIR)/,$(_OBJ_FILES))
 
-HEADERS := 
-SRC_DIR := .
-_HEADER_PATHS := include \
-				 ../1_complex/include \
-				 ../2_logger/include \
-				 ../3_printer/include
+_HEADER_PATHS := ../1_complex/include \
+		 ../2_logger/include \
+		 ../3_printer/include
+HEADERS := $(foreach path,$(_HEADER_PATHS),$(wildcard $(path)/*.h &))
 HEAD_LINK := $(addprefix -I,$(_HEADER_PATHS))
 
 LIBS := complex logger printer
@@ -21,4 +21,4 @@ TARGET := $(BUILD_DIR)/main.exe
 
 $(TARGET):
 
-include ../config.mk
+include ../rules.mk
